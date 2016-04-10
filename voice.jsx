@@ -1,10 +1,13 @@
 (function(){
     'use strict';
+    require('./textInput');
+    require('./emailInput');
+    require('./commentTextarea');
+
     var final_transcript;
     var recognizing = false;
     var ignore_onend;
     var currentlySelectedElement = {}; //initialize selected element
-    console.log('this just got changed?');
 
     var nameElement    = document.getElementById('name');
     var emailElement   = document.getElementById('email');

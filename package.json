@@ -1,0 +1,25 @@
+{
+  "name": "voice-api",
+  "version": "1.0.0",
+  "description": "A simple app exploring the Chrome Voice API",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@code.texas.local:7999/~david.krause/chrome-speech-api.git"
+  },
+  "author": "David Krause",
+  "license": "ISC",
+  "devDependencies": {
+    "jsx-loader": "^0.13.2",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  }
+}
