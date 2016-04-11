@@ -11,7 +11,10 @@ class TextInput extends React.Component {
         return (
                 <div className="form-group">
                     <label htmlFor={this.props.inputId}>{this.props.inputLabel}</label>
-                    <input type="text" name={this.props.inputId} id={this.props.inputId} className="form-control" />
+                    <input type="text"
+                           name={this.props.inputId}
+                           id={this.props.inputId}
+                           className="form-control" />
                 </div>
                 );
     }

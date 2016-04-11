@@ -10,7 +10,9 @@ class CommentTextarea extends React.Component {
     render() {
         return <div className="form-group">
                     <label htmlFor={this.props.textareaId}>{this.props.textareaLabel}</label>
-                    <textarea name={this.props.textareaId} id={this.props.textareaId} className="form-control"></textarea>
+                    <textarea name={this.props.textareaId}
+                              id={this.props.textareaId}
+                              className="form-control"></textarea>
                 </div>;
     }
 
