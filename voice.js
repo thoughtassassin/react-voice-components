@@ -36,8 +36,8 @@ var Voice = function(formElementsList, formButton) {
                     currentlySelectedElement = el;
                 }
             });
+            currentlySelectedElement.focus();
         }
-        currentlySelectedElement.focus();
     }
 
     //Check for SpeechRecognition and initialize SpeechRecognition calls
