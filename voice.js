@@ -1,27 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TextInput from './textInput';
-import EmailInput from './emailInput';
-import CommentTextarea from './commentTextarea';
-
-(function(){
-    'use strict';
-
-    //create React components
-    ReactDOM.render(<TextInput inputId="name" inputLabel="Name" />, document.getElementById('nameDiv'));
-    ReactDOM.render(<EmailInput inputId="email" inputLabel="Email" />, document.getElementById('emailDiv'));
-    ReactDOM.render(<CommentTextarea textareaId="comment" textareaLabel="Comment" />, document.getElementById('commentDiv'));
-
+var Voice = function(formElementsList, formButton) {
+    formElementsList = formElementsList || [];
+    formButton = formButton || {};
     //begin voice-api logic
+    var formElements = [];
     var final_transcript;
     var recognizing = false;
     var ignore_onend;
     var currentlySelectedElement = {}; //initialize selected element
+    var speakButton = document.getElementById(formButton);
 
-    var nameElement    = document.getElementById('name');
-    var emailElement   = document.getElementById('email');
-    var commentElement = document.getElementById('comment');
-    var speakButton    = document.getElementById('speak-button');
+    //get input items that will listen for voice commands
+    formElementsList.forEach(function(el) {
+        formElements.push(document.getElementById(el));
+    });
+
+    //add click listener to speak button
     speakButton.addEventListener('click', speak);
 
     function speak(event) {
@@ -36,21 +29,18 @@ import CommentTextarea from './commentTextarea';
     }
 
     function giveInputFocus(word) {
-        console.log('words from giveInputFocus' + word);
-        if (word == 'name') {
-            currentlySelectedElement = nameElement;
-        }
-
-        if (word == 'email') {
-            currentlySelectedElement = emailElement;
-        }
-
-        if (word == 'comment') {
-            currentlySelectedElement = commentElement;
+        if (formElementsList.indexOf(word) > -1) {
+            formElements.forEach(function(el) {
+                if (el.id == word)
+                {
+                    currentlySelectedElement = el;
+                }
+            });
         }
         currentlySelectedElement.focus();
     }
 
+    //Check for SpeechRecognition and initialize SpeechRecognition calls
     if (!('webkitSpeechRecognition' in window)) {
         speakButton.style.display = 'none';
     } else {
@@ -102,4 +92,6 @@ import CommentTextarea from './commentTextarea';
         };
     }
 
-})();
+}
+
+export default Voice;
