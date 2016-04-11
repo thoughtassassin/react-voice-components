@@ -1,9 +1,18 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import TextInput from './textInput';
+import EmailInput from './emailInput';
+import CommentTextarea from './commentTextarea';
+
 (function(){
     'use strict';
-    require('./textInput');
-    require('./emailInput');
-    require('./commentTextarea');
 
+    //create React components
+    ReactDOM.render(<TextInput inputId="name" inputLabel="Name" />, document.getElementById('nameDiv'));
+    ReactDOM.render(<EmailInput inputId="email" inputLabel="Email" />, document.getElementById('emailDiv'));
+    ReactDOM.render(<CommentTextarea textareaId="comment" textareaLabel="Comment" />, document.getElementById('commentDiv'));
+
+    //begin voice-api logic
     var final_transcript;
     var recognizing = false;
     var ignore_onend;

@@ -1,15 +1,38 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var EmailInput = React.createClass({
-    render: function() {
-        return <div className="form-group">
+class EmailInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.handleBlur = this.handleBlur.bind(this);
+    }
+
+    handleBlur(event) {
+        let newValue = event.target.value;
+        newValue = newValue.replace(/\s+/g, '');
+        newValue = newValue.replace(/at/i, '@');
+        newValue = newValue.toLowerCase();
+        this.refs.email.value = newValue;
+    }
+
+    render() {
+        return (
+                <div className="form-group">
                     <label htmlFor={this.props.inputId}>{this.props.inputLabel}</label>
-                    <input type="email" name={this.props.inputId} id={this.props.inputId} className="form-control" />
-                </div>;
-    },
-    componentDidMount: function() {
+                    <input type="email"
+                           ref="email"
+                           name={this.props.inputId}
+                           id={this.props.inputId}
+                           className="form-control"
+                           onBlur={this.handleBlur}/>
+                </div>
+                );
+    }
+
+    componentDidMount() {
         console.log(this.props.inputId);
     }
-});
-ReactDOM.render(<EmailInput inputId="email" inputLabel="Email" />, document.getElementById('emailDiv'));
+}
+
+export default EmailInput;

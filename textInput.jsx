@@ -1,15 +1,24 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var TextInput = React.createClass({
-    render: function() {
-        return <div className="form-group">
+class TextInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {}
+    }
+
+    render() {
+        return (
+                <div className="form-group">
                     <label htmlFor={this.props.inputId}>{this.props.inputLabel}</label>
                     <input type="text" name={this.props.inputId} id={this.props.inputId} className="form-control" />
-                </div>;
-    },
-    componentDidMount: function() {
+                </div>
+                );
+    }
+
+    componentDidMount() {
         console.log(this.props.inputId);
     }
-});
-ReactDOM.render(<TextInput inputId="name" inputLabel="Name" />, document.getElementById('nameDiv'));
+}
+
+export default TextInput;
