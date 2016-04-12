@@ -1,7 +1,6 @@
 var Voice = function(formElementsList, formButton) {
     formElementsList = formElementsList || [];
     formButton = formButton || {};
-    //begin voice-api logic
     var formElements = [];
     var final_transcript;
     var recognizing = false;
@@ -17,6 +16,7 @@ var Voice = function(formElementsList, formButton) {
     //add click listener to speak button
     speakButton.addEventListener('click', speak);
 
+    //Utility methods for SpeechRecognition
     function speak(event) {
         if (recognizing) {
             recognizing = false;
@@ -40,7 +40,7 @@ var Voice = function(formElementsList, formButton) {
         }
     }
 
-    //Check for SpeechRecognition and initialize SpeechRecognition calls
+    //Check for SpeechRecognition and implement SpeechRecognition methods
     if (!('webkitSpeechRecognition' in window)) {
         speakButton.style.display = 'none';
     } else {
