@@ -1,4 +1,4 @@
-# Running the code in this repo
+# Running Chrome-Speech-API
 
 Navigate to the root directory with command line
 
