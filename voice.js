@@ -63,9 +63,7 @@ var Voice = function(formElementsList, formButton) {
 
                     giveInputFocus(final_transcript.trim());
 
-                    if (final_transcript.trim() != 'name' &&
-                        final_transcript.trim() != 'email' &&
-                        final_transcript.trim() != 'comment') {
+                    if (formElementsList.indexOf(final_transcript.trim()) == -1) {
                             currentlySelectedElement.value = final_transcript;
                     }
 
