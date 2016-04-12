@@ -1,16 +1,22 @@
-(function(){
-    'use strict';
+var Voice = function(formElementsList, formButton) {
+    formElementsList = formElementsList || [];
+    formButton = formButton || {};
+    var formElements = [];
     var final_transcript;
     var recognizing = false;
     var ignore_onend;
     var currentlySelectedElement = {}; //initialize selected element
+    var speakButton = document.getElementById(formButton);
 
-    var nameElement    = document.getElementById('name');
-    var emailElement   = document.getElementById('email');
-    var commentElement = document.getElementById('comment');
-    var speakButton    = document.getElementById('speak-button');
+    //get input items that will listen for voice commands
+    formElementsList.forEach(function(el) {
+        formElements.push(document.getElementById(el));
+    });
+
+    //add click listener to speak button
     speakButton.addEventListener('click', speak);
 
+    //Utility methods for SpeechRecognition
     function speak(event) {
         if (recognizing) {
             recognizing = false;
@@ -23,21 +29,18 @@
     }
 
     function giveInputFocus(word) {
-        console.log('words from giveInputFocus' + word);
-        if (word == 'name') {
-            currentlySelectedElement = nameElement;
+        if (formElementsList.indexOf(word) > -1) {
+            formElements.forEach(function(el) {
+                if (el.id == word)
+                {
+                    currentlySelectedElement = el;
+                }
+            });
+            currentlySelectedElement.focus();
         }
-
-        if (word == 'email') {
-            currentlySelectedElement = emailElement;
-        }
-
-        if (word == 'comment') {
-            currentlySelectedElement = commentElement;
-        }
-        currentlySelectedElement.focus();
     }
 
+    //Check for SpeechRecognition and implement SpeechRecognition methods
     if (!('webkitSpeechRecognition' in window)) {
         speakButton.style.display = 'none';
     } else {
@@ -60,9 +63,7 @@
 
                     giveInputFocus(final_transcript.trim());
 
-                    if (final_transcript.trim() != 'name' &&
-                        final_transcript.trim() != 'email' &&
-                        final_transcript.trim() != 'comment') {
+                    if (formElementsList.indexOf(final_transcript.trim()) == -1) {
                             currentlySelectedElement.value = final_transcript;
                     }
 
@@ -89,4 +90,6 @@
         };
     }
 
-})();
+}
+
+export default Voice;

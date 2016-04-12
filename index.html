@@ -9,18 +9,9 @@
     <body>
         <div class="container">
             <form name="voice-form" action="addRecord.php" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="Email">Email</label>
-                    <input type="email" name="email" id="email" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label for="comment">Comment</label>
-                    <textarea name="comment" id="comment" class="form-control"></textarea>
-                </div>
+                <div id="nameDiv"></div>
+                <div id="emailDiv"></div>
+                <div id="commentDiv"></div>
                 <div class="button-group">
                     <button type="button" name="speak-button" id="speak-button" class="btn btn-info"><span class="fa fa-microphone"></span> Speak</button>
                     <input type="submit" name="voice-submit" id="voice-submit" class="btn btn-info" value="Send"/>
@@ -29,6 +20,6 @@
         </div>
         <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="voice.js"></script>
+        <script type="text/javascript" src="./bundle.js" charset="utf-8"></script>
     </body>
 </html>
