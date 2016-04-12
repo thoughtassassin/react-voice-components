@@ -51,7 +51,6 @@ var Voice = function(formElementsList, formButton) {
         recognition.onstart = function() {
             recognizing = true;
             speakButton.style.opacity = 1;
-
         };
 
         recognition.onresult = function(event) {
