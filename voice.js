@@ -65,7 +65,6 @@ var Voice = function(formElementsList, formButton) {
                     if (formElementsList.indexOf(final_transcript.trim()) == -1) {
                             currentlySelectedElement.value = final_transcript;
                     }
-
                 }
             }
         };
