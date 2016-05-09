@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 1em;
+}
+
+button {
+    background: transparent;
+}
+
+.input-group-addon {
+    padding: 5px 12px;
+}
+
+.alert {
+    display: none;
+}
+
+.interim {
+    color: #AAA;
+}
+
+#speak-button {
+    opacity: 0.5;
+}
+
+.button-group {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}

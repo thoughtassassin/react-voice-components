@@ -8,7 +8,8 @@ module.exports = {
         loaders: [
             {
                 test: /\.css$/,
-                loader: "style!css"
+                exclude: /(node_modules|bower_components)/,
+                loader: "style-loader!css-loader"
             },
             {
                 //tell webpack to use jsx-loader for all *.jsx files
@@ -22,10 +23,16 @@ module.exports = {
               query: {
                 presets: ['es2015']
               }
+            },
+            {
+              test: /\.(woff|png|jpg|gif)$/,
+              loader: 'url-loader?limit=10000&name=[path][name].[ext]'
             }
+
+
         ]
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
     }
-}
+};

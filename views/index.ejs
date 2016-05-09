@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <form name="voice-form" action="addRecord.php" method="POST">
+                <div id="nameDiv"></div>
+                <div id="emailDiv"></div>
+                <div id="commentDiv"></div>
+                <div class="button-group">
+                    <button type="button" name="speak-button" id="speak-button" class="btn btn-info"><span class="fa fa-microphone"></span> Speak</button>
+                    <input type="submit" name="voice-submit" id="voice-submit" class="btn btn-info" value="Send"/>
+                </div>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./bundle.js" charset="utf-8"></script>
+    </body>
+</html>
